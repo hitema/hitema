@@ -17,14 +17,11 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-//@WebParam(name="qte") int qte)
-//@SOAPBinding(parameterStyle = SOAPBinding.ParameterStyle.BARE)
+
 
 @Stateless                                                            
-@WebService(                                                         
-   name="Registry",
-   targetNamespace = "http://workflow",
-   serviceName = "Service")
+@WebService(name="Registry", targetNamespace = "http://registry.workflow", serviceName = "Service")
+@SOAPBinding(style=Style.DOCUMENT, use=Use.LITERAL)
 public class Registry
 {
 

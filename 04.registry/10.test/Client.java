@@ -1,4 +1,4 @@
-import workflow.*;
+import workflow.registry.*;
 
 public class Client 
 {

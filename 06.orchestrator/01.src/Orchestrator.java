@@ -1,5 +1,5 @@
-package workflow.orchestrator;
-
+package workflow.orchestrator.*;
+package workflow.registry.*;
 import javax.ejb.Stateless;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -43,16 +43,20 @@ public class Orchestrator
 
 		try
 		{
-			Service service = new Service();
-			Accessdb access = service.getAccessdbPort();
+			workflow.orchestrator.Service service_orchestrator = new Service();
+			Accessdb accessdb = service_orchestrator.getAccessdbPort();
 
-			id = access.initprocess(position);
+			workflow.registry.Service service_registry = new Service();
+			Registry registry = service_registry.getRegistryPort();
+
+			id = accessdb.initprocess(position);
 			System.out.println("Position = " + id.toString());
 
-			listprocess = access.getListstep();
+			listprocess = accessdb.getListstep();
 			for (int i=0; i<listprocess.size(); i++)
 			{	
 				BeanProcess bean = listprocess.get(i);
+				string url = service.getService("");
 				System.out.println(bean.getProcessorder() +"*"+ bean.getName());
 			}
 			return true;
