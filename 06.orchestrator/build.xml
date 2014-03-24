@@ -1,0 +1,58 @@
+<project name="webapp" default="projet" basedir=".">
+
+	<property environment="env" />
+	<property name="jboss_home" value="${env.JBOSS_HOME}" />
+	<property name="lib1"        value="${jboss_home}/lib"/>
+	<property name="lib2"       value="${jboss_home}/lib/endorsed" />
+	<property name="lib3"       value="${jboss_home}/common/lib" />
+
+	<!-- Archives variables -->	
+	<property name="archive" value="99.archive"/>
+	
+	<property name="src" value="01.src" />
+	<property name="classes" value="02.classes"/>
+	<property name="archivename" value="ServiceOrchestrator.jar"/>
+
+	<!-- project definition -->
+	<target name="projet" depends="clean, wsdl, compile, archive, deploy" />
+
+	<target name="clean">
+		<mkdir dir="${classes}" />
+		<delete>
+			<fileset dir="${classes}" includes="**/*.*" />
+		</delete>
+		<delete file="${archive}/${archivename}" />
+	</target>
+	
+	<target name="wsdl">
+		<exec executable="wsimport">
+			<arg value="-d" />
+			<arg value="${classes}" />
+			<arg value="http://localhost:8080/ServiceAccessdb/Service/Accessdb?wsdl" />   
+		</exec>
+	</target>
+
+	<target name="compile" depends="clean, wsdl">
+		<javac srcdir="${src}" destdir="${classes}" includeantruntime="false">
+			<classpath>
+				<fileset dir="${lib1}" includes="*.jar"/>
+				<fileset dir="${lib2}" includes="*.jar"/>
+				<fileset dir="${lib3}" includes="*.jar"/> 
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="archive" depends="clean, wsdl, compile">
+		<jar jarfile="${archive}/${archivename}" basedir="${classes}" />
+	</target>
+
+	<target name="deploy" depends="clean, wsdl, compile, archive">
+		<delete file="${jboss_home}/server/default/deploy/${archivename}" />
+		<copy file="${archive}/${archivename}" todir="${jboss_home}/server/default/deploy/"/>
+	</target>
+
+	<target name="undeploy">
+		<delete file="${jboss_home}/server/default/deploy/${archivename}" />
+	</target>
+
+</project>

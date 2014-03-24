@@ -1,0 +1,11 @@
+<project name="2.connecteur.mysql" default="2.connecteur.mysql" >
+
+	<property environment="env" />
+	<property name="jboss_home" value="${env.JBOSS_HOME}" />
+
+	<target name="2.connecteur.mysql" >
+		<copy 	file="mysql-connector-java-5.1.29-bin.jar" 
+			todir="${jboss_home}/server/default/lib"/>
+	</target>
+
+</project>

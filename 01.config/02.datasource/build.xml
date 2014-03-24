@@ -1,0 +1,17 @@
+<project name="datasource" default="datasource" >
+
+	<property environment="env" />
+	<property name="jboss_home" value="${env.JBOSS_HOME}" />
+	<property name="deploy.dir" value="${jboss_home}/server/default/deploy" />
+
+	<target name="datasource" depends="delete, deploy" />
+
+	<target name="delete">
+		<delete file="${deploy.dir}/mysql-ds.xml" />
+	</target>
+
+	<target name="deploy">
+		<copy file="mysql-ds.xml" todir="${deploy.dir}"/>
+	</target>
+
+</project>

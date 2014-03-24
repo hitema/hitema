@@ -1,0 +1,1 @@
+from the prompt of mysql : source file.sql

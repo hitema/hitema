@@ -1,0 +1,25 @@
+<project name="webapp" default="projet" basedir=".">
+
+
+
+	
+	<property name="src" value="01.src" />
+	<property name="classes" value="02.classes"/>
+
+
+	<!-- project definition -->
+	<target name="projet" depends="clean, compile" />
+
+	<target name="clean">
+		<mkdir dir="${classes}" />
+		<delete>
+			<fileset dir="${classes}" includes="**/*.class" />
+		</delete>
+	</target>
+
+	<target name="compile" depends="clean">
+		<javac srcdir="${src}" destdir="${classes}" includeantruntime="false">
+		</javac>
+	</target>
+
+</project>
