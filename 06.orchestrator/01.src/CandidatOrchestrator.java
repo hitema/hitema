@@ -1,26 +1,32 @@
 package workflow;
 
-import workflow.rediger.*;
 import java.io.Serializable;
+import workflow.rediger.*;
+import workflow.interviewerdop.*;
+import workflow.interviewerrh.*;
+import workflow.selectionner.*;
+import workflow.valider.*;
 
-public class Beancandidat implements Serializable 
+
+
+public class CandidatOrchestrator implements Serializable 
 {
 	private int id;
 	private String intitule;
-    private String descriptif;
-    private String nom;
-    private String prenom;
-    private String cv;
-    private String rh;
-    private String dop;
-    private String validation;
+	    private String descriptif;
+	    private String nom;
+	    private String prenom;
+	    private String cv;
+	    private String rh;
+	    private String dop;
+	    private String validation;
 private int processorder; 
 private String deroulement;
 
 
 	public workflow.rediger.Beancandidat getRedigerCandidat()
 	{
-		workflow.rediger.Beancandidat bean;
+		workflow.rediger.Beancandidat bean = new workflow.rediger.Beancandidat();
 		bean.setDescriptif(descriptif);
 		bean.setNom(nom);
 		bean.setPrenom(prenom);
@@ -35,20 +41,20 @@ private String deroulement;
 
 	public void setRedigerCandidat(workflow.rediger.Beancandidat bean)
 	{
-		this.setDescriptif(bean.getDescriptif);
-		this.setNom(bean.getNom);
-		this.setPrenom(bean.getPrenom);
-		this.setCv(bean.getCv);
-		this.setRh(bean.getRh);
-		this.setDop(bean.getDop);
-		this.setValidation(bean.getValidation);
-		this.setProcessorder(bean.getProcessorder);
-		this.setDeroulement(bean.getDeroulement);
+		this.setDescriptif(bean.getDescriptif());
+		this.setNom(bean.getNom());
+		this.setPrenom(bean.getPrenom());
+		this.setCv(bean.getCv());
+		this.setRh(bean.getRh());
+		this.setDop(bean.getDop());
+		this.setValidation(bean.getValidation());
+		this.setProcessorder(bean.getProcessorder());
+		this.setDeroulement(bean.getDeroulement());
 	}
 	
-	public workflow.selection.Beancandidat getSelectionCandidat()
+	public workflow.selectionner.Beancandidat getSelectionCandidat()
 	{
-		workflow.selection.Beancandidat bean;
+		workflow.selectionner.Beancandidat bean = new workflow.selectionner.Beancandidat();
 		bean.setDescriptif(descriptif);
 		bean.setNom(nom);
 		bean.setPrenom(prenom);
@@ -61,22 +67,22 @@ private String deroulement;
 		return bean;
 	}
 
-	public void setSelectionCandidat(workflow.selection.Beancandidat bean)
+	public void setSelectionCandidat(workflow.selectionner.Beancandidat bean)
 	{
-		this.setDescriptif(bean.getDescriptif);
-		this.setNom(bean.getNom);
-		this.setPrenom(bean.getPrenom);
-		this.setCv(bean.getCv);
-		this.setRh(bean.getRh);
-		this.setDop(bean.getDop);
-		this.setValidation(bean.getValidation);
-		this.setProcessorder(bean.getProcessorder);
-		this.setDeroulement(bean.getDeroulement);
+		this.setDescriptif(bean.getDescriptif());
+		this.setNom(bean.getNom());
+		this.setPrenom(bean.getPrenom());
+		this.setCv(bean.getCv());
+		this.setRh(bean.getRh());
+		this.setDop(bean.getDop());
+		this.setValidation(bean.getValidation());
+		this.setProcessorder(bean.getProcessorder());
+		this.setDeroulement(bean.getDeroulement());
 	}
 
 	public workflow.valider.Beancandidat getValiderCandidat()
 	{
-		workflow.valider.Beancandidat bean;
+		workflow.valider.Beancandidat bean = new workflow.valider.Beancandidat();
 		bean.setDescriptif(descriptif);
 		bean.setNom(nom);
 		bean.setPrenom(prenom);
@@ -91,20 +97,20 @@ private String deroulement;
 
 	public void setValiderCandidat(workflow.valider.Beancandidat bean)
 	{
-		this.setDescriptif(bean.getDescriptif);
-		this.setNom(bean.getNom);
-		this.setPrenom(bean.getPrenom);
-		this.setCv(bean.getCv);
-		this.setRh(bean.getRh);
-		this.setDop(bean.getDop);
-		this.setValidation(bean.getValidation);
-		this.setProcessorder(bean.getProcessorder);
-		this.setDeroulement(bean.getDeroulement);
+		this.setDescriptif(bean.getDescriptif());
+		this.setNom(bean.getNom());
+		this.setPrenom(bean.getPrenom());
+		this.setCv(bean.getCv());
+		this.setRh(bean.getRh());
+		this.setDop(bean.getDop());
+		this.setValidation(bean.getValidation());
+		this.setProcessorder(bean.getProcessorder());
+		this.setDeroulement(bean.getDeroulement());
 	}
 
-	public workflow.interviewerRH.Beancandidat getInterviewerRhCandidat()
+	public workflow.interviewerrh.Beancandidat getInterviewerRhCandidat()
 	{
-		workflow.interviewerRH.Beancandidat bean;
+		workflow.interviewerrh.Beancandidat bean = new workflow.interviewerrh.Beancandidat();
 		bean.setDescriptif(descriptif);
 		bean.setNom(nom);
 		bean.setPrenom(prenom);
@@ -117,22 +123,22 @@ private String deroulement;
 		return bean;
 	}
 
-	public void setInterviewerRhCandidat(workflow.interviewerRH.Beancandidat bean)
+	public void setInterviewerRhCandidat(workflow.interviewerrh.Beancandidat bean)
 	{
-		this.setDescriptif(bean.getDescriptif);
-		this.setNom(bean.getNom);
-		this.setPrenom(bean.getPrenom);
-		this.setCv(bean.getCv);
-		this.setRh(bean.getRh);
-		this.setDop(bean.getDop);
-		this.setValidation(bean.getValidation);
-		this.setProcessorder(bean.getProcessorder);
-		this.setDeroulement(bean.getDeroulement);
+		this.setDescriptif(bean.getDescriptif());
+		this.setNom(bean.getNom());
+		this.setPrenom(bean.getPrenom());
+		this.setCv(bean.getCv());
+		this.setRh(bean.getRh());
+		this.setDop(bean.getDop());
+		this.setValidation(bean.getValidation());
+		this.setProcessorder(bean.getProcessorder());
+		this.setDeroulement(bean.getDeroulement());
 	}
 
-	public workflow.interviewerDOP.Beancandidat getInterviewerDopCandidat()
+	public workflow.interviewerdop.Beancandidat getInterviewerDopCandidat()
 	{
-		workflow.interviewerDOP.Beancandidat bean;
+		workflow.interviewerdop.Beancandidat bean = new workflow.interviewerdop.Beancandidat();
 		bean.setDescriptif(descriptif);
 		bean.setNom(nom);
 		bean.setPrenom(prenom);
@@ -145,17 +151,17 @@ private String deroulement;
 		return bean;
 	}
 
-	public void setInterviewerDopCandidat(workflow.interviewerDOP.Beancandidat bean)
+	public void setInterviewerDopCandidat(workflow.interviewerdop.Beancandidat bean)
 	{
-		this.setDescriptif(bean.getDescriptif);
-		this.setNom(bean.getNom);
-		this.setPrenom(bean.getPrenom);
-		this.setCv(bean.getCv);
-		this.setRh(bean.getRh);
-		this.setDop(bean.getDop);
-		this.setValidation(bean.getValidation);
-		this.setProcessorder(bean.getProcessorder);
-		this.setDeroulement(bean.getDeroulement);
+		this.setDescriptif(bean.getDescriptif());
+		this.setNom(bean.getNom());
+		this.setPrenom(bean.getPrenom());
+		this.setCv(bean.getCv());
+		this.setRh(bean.getRh());
+		this.setDop(bean.getDop());
+		this.setValidation(bean.getValidation());
+		this.setProcessorder(bean.getProcessorder());
+		this.setDeroulement(bean.getDeroulement());
 	}
   
   
@@ -268,7 +274,7 @@ private String deroulement;
 		return this.deroulement;
 	}
 	
-	public Beancandidat()
+	public CandidatOrchestrator()
 	{
 	}
     

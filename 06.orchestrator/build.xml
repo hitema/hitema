@@ -24,7 +24,7 @@
 		<delete file="${archive}/${archivename}" />
 	</target>
 	
-	<target name="wsdl" depends="wsdl_rediger, wsdl_selection, wsdl_valider">
+	<target name="wsdl" depends="wsdl_rediger, wsdl_selection, wsdl_valider, wsdl_interview_RH, wsdl_interview_OP">
 		<exec executable="wsimport">
 			<arg value="-d" />
 			<arg value="${classes}" />
@@ -49,7 +49,7 @@
 		<exec executable="wsimport">
 			<arg value="-d" />
 			<arg value="${classes}" />
-			<arg value="http://localhost:8080/ServiceSelection/Service/selection?wsdl" />   
+			<arg value="http://localhost:8080/ServiceSelectionner/Service/selectionner?wsdl" />   
 		</exec>
 	</target>
 
@@ -69,6 +69,21 @@
 		</exec>
 	</target>
 
+	<target name="wsdl_interview_RH">
+		<exec executable="wsimport">
+			<arg value="-d" />
+			<arg value="${classes}" />
+			<arg value="http://localhost:8080/ServiceInterviewerRH/Service/interviewerRH?wsdl" />   
+		</exec>
+	</target>
+
+	<target name="wsdl_interview_OP">
+		<exec executable="wsimport">
+			<arg value="-d" />
+			<arg value="${classes}" />
+			<arg value="http://localhost:8080/ServiceInterviewerDOP/Service/interviewerDOP?wsdl" />   
+		</exec>
+	</target>
 
 	<target name="compile" depends="">
 		<javac srcdir="${src}" destdir="${classes}" includeantruntime="false">
@@ -80,11 +95,11 @@
 		</javac>
 	</target>
 
-	<target name="archive" depends="clean, wsdl, compile">
+	<target name="archive" depends="compile">
 		<jar jarfile="${archive}/${archivename}" basedir="${classes}" />
 	</target>
 
-	<target name="deploy" depends="clean, wsdl, compile, archive">
+	<target name="deploy" depends="compile, archive">
 		<delete file="${jboss_home}/server/default/deploy/${archivename}" />
 		<copy file="${archive}/${archivename}" todir="${jboss_home}/server/default/deploy/"/>
 	</target>
