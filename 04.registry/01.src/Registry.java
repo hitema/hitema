@@ -52,7 +52,7 @@ public class Registry
 	}
 
  	@WebMethod
-	public String getService(@WebParam(name="idservice") Integer idservice)
+	public String getService(@WebParam(name="idservice") String serviceservice)
 	{
 		Connection connect = null;
 		Statement statement = null;
@@ -63,7 +63,7 @@ public class Registry
 			connect = createConnection();
 
 			statement = connect.createStatement();
-			resultSet = statement.executeQuery("select url from registry where ID_registry ="+ idservice.toString());
+			resultSet = statement.executeQuery("select url from registry where service_name ='" + serviceservice + "'");
 			if (resultSet.next())
 				url = resultSet.getString("url");
 				

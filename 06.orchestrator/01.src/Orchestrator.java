@@ -12,8 +12,9 @@ import java.util.*;
 import workflow.accessdb.*;
 import java.net.URL;
 import javax.xml.namespace.QName;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
 
-import javax.swing.JOptionPane;
 
 
 
@@ -29,6 +30,25 @@ public class Orchestrator
 	public Orchestrator()
 	{
 
+	}
+
+
+	private void step_rediger(String url_text)
+	{
+		try
+		{
+			URL url = new URL(url_text);
+			QName qname = new QName("http://registry.workflow","Service"); 
+
+			javax.xml.ws.Service service = javax.xml.ws.Service.create(url, qname);
+			Registry reg = service1.getPort(Registry.class); 
+			String s = reg.getService("initialiser");
+
+			System.out.println(s);
+		} catch (Exception e)
+		{
+			System.out.println(e);
+		}
 	}
 
 
@@ -61,6 +81,7 @@ public class Orchestrator
 			{
 				BeanProcess bean = listprocess.get(i);
 				int id = bean.getProcessorder();
+				id= 1;
 				switch (id)
 				{
 					case 1:
@@ -73,7 +94,6 @@ public class Orchestrator
 						break;
 				}
 			}
-			switch 
 
 			for (int i=0; i<listprocess.size(); i++)
 			{	

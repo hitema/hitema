@@ -24,7 +24,7 @@
 		<delete file="${archive}/${archivename}" />
 	</target>
 	
-	<target name="wsdl">
+	<target name="wsdl" depends="wsdl_rediger, wsdl_selection, wsdl_valider">
 		<exec executable="wsimport">
 			<arg value="-d" />
 			<arg value="${classes}" />
@@ -36,6 +36,39 @@
 			<arg value="http://localhost:8080/ServiceRegistry/Service/Registry?wsdl" />   
 		</exec>
 	</target>
+
+	<target name="wsdl_rediger">
+		<exec executable="wsimport">
+			<arg value="-d" />
+			<arg value="${classes}" />
+			<arg value="http://localhost:8080/ServiceRediger/Service/rediger?wsdl" />   
+		</exec>
+	</target>
+
+	<target name="wsdl_selection">
+		<exec executable="wsimport">
+			<arg value="-d" />
+			<arg value="${classes}" />
+			<arg value="http://localhost:8080/ServiceSelection/Service/selection?wsdl" />   
+		</exec>
+	</target>
+
+	<target name="wsdl_valider">
+		<exec executable="wsimport">
+			<arg value="-d" />
+			<arg value="${classes}" />
+			<arg value="http://localhost:8080/ServiceValider/Service/valider?wsdl" />   
+		</exec>
+	</target>
+
+	<target name="wsdl_publish">
+		<exec executable="wsimport">
+			<arg value="-d" />
+			<arg value="${classes}" />
+			<arg value="http://milonas.cloudapp.net/ServiceWebPublication.svc?wsdl" />   
+		</exec>
+	</target>
+
 
 	<target name="compile" depends="clean, wsdl">
 		<javac srcdir="${src}" destdir="${classes}" includeantruntime="false">
