@@ -47,9 +47,13 @@ public class Orchestrator
 			workflow.registry.Service service_registry = new workflow.registry.Service();
 			Registry registry = service_registry.getRegistryPort();
 
+
+			//initialize process by DRH
 			id = accessdb.initprocess(position);
 			System.out.println("Position = " + id.toString());
 
+
+			//get steps from the process
 			listprocess = accessdb.getListstep();
 			for (int i=0; i<listprocess.size(); i++)
 			{	
