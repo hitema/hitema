@@ -171,8 +171,8 @@ public class Accessdb
 	@WebMethod
     	public boolean setCandidat(@WebParam(name="candidat") Beancandidat candidat) throws Exception
 	{
-            String sql = "update into candidat (process_order, description, firstname,"+
-                        "lastname, resume, interviewrh, interviewop, validation) values (?,?,?,?,?,?,?,?)";
+            String sql = "update candidat set process_order=?, description='?', firstname='?',"+
+                        "lastname='?', resume='?', interviewrh='?', interviewop='?', validation='?' where ID_candidat="+candidat.getId();
 		Connection connect = null;
 		PreparedStatement preparedStatement = null;
 

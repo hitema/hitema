@@ -12,7 +12,15 @@ public class Client
 
 
 		Beancandidat c = new Beancandidat();
-		c = access.getCandidat(1);
-		System.out.println(c.getNom());
+		//c = access.getCandidat(1);
+		//System.out.println(c.getNom());
+		
+		c.setId(1);		
+		c.setPrenom("Roger");
+		c.setNom("Rabbit");
+		System.out.println(access.setCandidat(c));
+		
+		
+		
 	}
 }
