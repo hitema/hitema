@@ -1,21 +1,10 @@
 import java.util.*;
-import workflow.orchestrator.*;
+import workflow.*;
 import java.io.Console;
 
 import java.net.URL;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
-
-
-interface Registry
-{
-	
-	public String getService(String servicename);
- 	
-	public void addService(
-		String servicename,
-		String url);
-}
 
 public class Client 
 {
@@ -30,7 +19,7 @@ public class Client
 
         javax.xml.ws.Service service1 = javax.xml.ws.Service.create(url, qname);
         Registry reg = service1.getPort(Registry.class); 
-	String s = reg.getService("hh");
+	String s = reg.getService("selectionner");
 	System.out.println(s);
 	} catch (Exception e)
 	{

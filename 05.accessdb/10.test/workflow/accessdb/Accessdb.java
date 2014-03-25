@@ -3,6 +3,7 @@ package workflow.accessdb;
 
 import java.util.List;
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -33,5 +34,19 @@ public interface Accessdb {
     @RequestWrapper(localName = "getListstep", targetNamespace = "http://accessdb.workflow", className = "workflow.accessdb.GetListstep")
     @ResponseWrapper(localName = "getListstepResponse", targetNamespace = "http://accessdb.workflow", className = "workflow.accessdb.GetListstepResponse")
     public List<BeanProcess> getListstep();
+
+    /**
+     * 
+     * @param position
+     * @return
+     *     returns java.lang.Integer
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "initprocess", targetNamespace = "http://accessdb.workflow", className = "workflow.accessdb.Initprocess")
+    @ResponseWrapper(localName = "initprocessResponse", targetNamespace = "http://accessdb.workflow", className = "workflow.accessdb.InitprocessResponse")
+    public Integer initprocess(
+        @WebParam(name = "position", targetNamespace = "")
+        String position);
 
 }

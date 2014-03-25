@@ -55,10 +55,16 @@ public class Accessdb
 		Connection connect = null;
 		Statement statement = null;
 		ResultSet resultSet = null;
-		String sql = "select p.ID_process, p.process_order, p.role, p.name, r.ID_registry, r.url " +
+	/*	String sql = "select p.ID_process, p.process_order, p.role, p.name, r.ID_registry, r.url " +
 				"from process p, registry r " +
 				"where p.ID_registry = r.ID_registry " +
-				"order by p.process_order";
+				"order by p.process_order"; 
+	*/
+		// Thomas
+		String sql = "SELECT p.ID_process, p.process_order, p.role, p.name, p.ID_registry "+
+				"from process p " +
+				"order by p.process_order"; 
+
 		try
 		{
 			connect = createConnection();
@@ -69,11 +75,13 @@ public class Accessdb
 			{
 				BeanProcess bean = new BeanProcess();
 				bean.setIdprocess(resultSet.getInt("ID_process"));
+
 				bean.setProcessorder(resultSet.getInt("process_order"));
 				bean.setRole(resultSet.getString("role"));
 				bean.setName(resultSet.getString("name"));
-				bean.setIdregistry(resultSet.getInt("ID_registry"));
-				bean.setUrl(resultSet.getString("url"));
+				bean.setIdregistry(resultSet.getInt("ID_registry"));		
+				//Thomas		
+				//bean.setUrl(resultSet.getString("url"));
 			
 				list.add(bean);
 			}
