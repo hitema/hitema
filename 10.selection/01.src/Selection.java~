@@ -19,7 +19,7 @@ import java.io.*;
 @Stateless                                                            
 @WebService(                                                         
    name="selection",
-   targetNamespace = "http://workflow",
+   targetNamespace = "http://selection.workflow",
    serviceName = "Service")
 @SOAPBinding(style=Style.DOCUMENT, use=Use.LITERAL)
 public class Selection
@@ -40,7 +40,7 @@ public class Selection
 			BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
 			System.out.println(" Qui etes vous ? " );
 			
-			droit = "ARH"; //br.readLine();
+			String saisie = JOptionPane.showInputDialog("Quel est votre profil :");
 			if ( droit.equals(role) )
 			{
 

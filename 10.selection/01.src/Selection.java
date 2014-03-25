@@ -35,18 +35,15 @@ public class Selection
 	{
 		try
 		{
-			String droit = null;
-			String ligne;
 			BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
 			System.out.println(" Qui etes vous ? " );
 			
-			droit = "ARH"; //br.readLine();
+			String saisie = JOptionPane.showInputDialog("Quel est votre profil :");
 			if ( droit.equals(role) )
 			{
 
-				System.out.println(" Saisir le nom du candidat");
-				ligne = "Dupont"; //br.readLine();
-				beancandidat.setNom(ligne);
+				saisie = JOptionPane.showInputDialog("Saisir le nom du candidat");
+				beancandidat.setNom(saisie);
 				System.out.println(" Saisir le prenom du candidat");
 				ligne = "Robert"; //br.readLine();
 				beancandidat.setPrenom(ligne);

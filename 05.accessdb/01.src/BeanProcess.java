@@ -29,9 +29,10 @@ public class BeanProcess implements java.io.Serializable
 
 	public int getIdregistry() { return idregistry;}
 	public void setIdregistry(int value) { idregistry = value; }
-
-	public String getUrl() { return url;}
-	public void setUrl(String value) { url = value; }
+	
+//thomas
+//	public String getUrl() { return url;}
+//	public void setUrl(String value) { url = value; }
 
 	
 }

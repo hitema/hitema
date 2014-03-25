@@ -24,22 +24,16 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _InitprocessResponse_QNAME = new QName("http://accessdb.workflow", "initprocessResponse");
     private final static QName _GetListstepResponse_QNAME = new QName("http://accessdb.workflow", "getListstepResponse");
     private final static QName _GetListstep_QNAME = new QName("http://accessdb.workflow", "getListstep");
+    private final static QName _Initprocess_QNAME = new QName("http://accessdb.workflow", "initprocess");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: workflow.accessdb
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link GetListstep }
-     * 
-     */
-    public GetListstep createGetListstep() {
-        return new GetListstep();
     }
 
     /**
@@ -51,11 +45,44 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetListstep }
+     * 
+     */
+    public GetListstep createGetListstep() {
+        return new GetListstep();
+    }
+
+    /**
+     * Create an instance of {@link Initprocess }
+     * 
+     */
+    public Initprocess createInitprocess() {
+        return new Initprocess();
+    }
+
+    /**
+     * Create an instance of {@link InitprocessResponse }
+     * 
+     */
+    public InitprocessResponse createInitprocessResponse() {
+        return new InitprocessResponse();
+    }
+
+    /**
      * Create an instance of {@link BeanProcess }
      * 
      */
     public BeanProcess createBeanProcess() {
         return new BeanProcess();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link InitprocessResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://accessdb.workflow", name = "initprocessResponse")
+    public JAXBElement<InitprocessResponse> createInitprocessResponse(InitprocessResponse value) {
+        return new JAXBElement<InitprocessResponse>(_InitprocessResponse_QNAME, InitprocessResponse.class, null, value);
     }
 
     /**
@@ -74,6 +101,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://accessdb.workflow", name = "getListstep")
     public JAXBElement<GetListstep> createGetListstep(GetListstep value) {
         return new JAXBElement<GetListstep>(_GetListstep_QNAME, GetListstep.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Initprocess }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://accessdb.workflow", name = "initprocess")
+    public JAXBElement<Initprocess> createInitprocess(Initprocess value) {
+        return new JAXBElement<Initprocess>(_Initprocess_QNAME, Initprocess.class, null, value);
     }
 
 }
