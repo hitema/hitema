@@ -40,7 +40,15 @@ public class Valider
 			if ( saisie.equals(role) )
 			{
 				saisie = JOptionPane.showInputDialog("Embauchons-nous ce candidat ?");
+				while ( !saisie.equals("oui") && !saisie.equals("non") )
+				{
+					saisie = JOptionPane.showInputDialog("Repondez par oui ou non");
+				}
 				beancandidat.setValidation(saisie);
+			}
+			else
+			{
+				beancandidat.setDeroulement("Erreur d'utilisateur à l'étape de validation de l'embauche");
 			}
 		}
 		catch ( Exception e ) 

@@ -15,9 +15,15 @@ public class Client
 		Valider valid = service.getValiderPort();
 
 		Beancandidat bean = valid.execstep("ARH", beancandidat);
-		String s1 = bean.getValidation();
-
-		System.out.println(s1);
+		String s = bean.getValidation();
+		if (s!=null)
+		{
+			System.out.println(s);
+		}
+		else
+		{
+			System.out.println(bean.getDeroulement());
+		}
 
 
 	}

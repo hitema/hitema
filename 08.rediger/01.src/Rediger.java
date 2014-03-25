@@ -45,7 +45,7 @@ public class Rediger
 			if ( saisie.equals(role) )
 			{
 
-				saisie = JOptionPane.showInputDialog("Quel type de poste :");
+				saisie = JOptionPane.showInputDialog("Saisissez le descriptif du poste :");
 				if ( !saisie.equals("") )
 				{
 					beancandidat.setDescriptif(saisie);
@@ -53,6 +53,10 @@ public class Rediger
 				else 
 					beancandidat.setDescriptif(" Voici l'offre ");
 
+			}
+			else
+			{
+				beancandidat.setDeroulement("Erreur d'utilisateur à l'étape Rediger l'offre");
 			}
 		}
 		catch ( Exception e ) 

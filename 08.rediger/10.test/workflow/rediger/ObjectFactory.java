@@ -35,19 +35,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Beancandidat }
-     * 
-     */
-    public Beancandidat createBeancandidat() {
-        return new Beancandidat();
-    }
-
-    /**
      * Create an instance of {@link Execstep }
      * 
      */
     public Execstep createExecstep() {
         return new Execstep();
+    }
+
+    /**
+     * Create an instance of {@link Beancandidat }
+     * 
+     */
+    public Beancandidat createBeancandidat() {
+        return new Beancandidat();
     }
 
     /**

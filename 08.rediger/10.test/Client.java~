@@ -15,8 +15,18 @@ public class Client
 		Rediger rediger = service.getRedigerPort();
 
 		Beancandidat bean = rediger.execstep("ARH", beancandidat);
-		String s = bean.getDescriptif();
-		System.out.println(s);
+
+			String s = bean.getDescriptif();
+		if ( s != null )
+		{
+			System.out.println(s);
+		}
+		else
+		{
+			System.out.println(bean.getDeroulement);
+		}
 
 	}
 }
+
+

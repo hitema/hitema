@@ -13,6 +13,8 @@ public class Beancandidat implements Serializable
     private String rh;
     private String dop;
     private String validation;
+private int processorder; 
+private String deroulement;
 
   
     public String getDescriptif() {
@@ -101,6 +103,26 @@ public class Beancandidat implements Serializable
     public void setId(int id) {
         this.id = id;
     }
+
+	public void setProcessorder(int processorder)
+	{
+		this.processorder=processorder;
+	}
+
+	public int getProcessorder()
+	{
+		return this.processorder;
+	}
+
+	public void setDeroulement(String deroulement)
+	{
+		this.deroulement=deroulement;
+	}
+
+	public String getDeroulement()
+	{
+		return this.deroulement;
+	}
 	
 	public Beancandidat()
 	{
