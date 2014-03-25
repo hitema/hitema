@@ -11,17 +11,18 @@ CREATE TABLE IF NOT EXISTS registry
 	ID_registry	int(4) NOT NULL AUTO_INCREMENT,
 	service_name	varchar(32) not null,
 	url		varchar(255) not null,
-s
+	class_name	varchar(30) not null,
+
 	PRIMARY KEY (ID_registry)
 )ENGINE=InnoDB;
 
-insert into registry (service_name, url) values ('initialiser', 'http://init.com');
-insert into registry (service_name, url) values ('rediger', 'http://rediger.com');
-insert into registry (service_name, url) values ('publier', 'http://publier.com');
-insert into registry (service_name, url) values ('selectionner', 'http://selectionner.com');
-insert into registry (service_name, url) values ('interviewer RH', 'http://interviewerRH.com');
-insert into registry (service_name, url) values ('interviewer OP', 'http://interviewerOP.com');
-insert into registry (service_name, url) values ('valider', 'http://valider.com');
+insert into registry (service_name, url) values ('initialiser', 'http://init.com',);
+insert into registry (service_name, url) values ('rediger', 'http://rediger.com','Rediger');
+insert into registry (service_name, url) values ('publier', 'http://publier.com','IServiceWebPublication');
+insert into registry (service_name, url) values ('selectionner', 'http://selectionner.com','Selectionner');
+insert into registry (service_name, url) values ('interviewer RH', 'http://interviewerRH.com','InterviewerRH');
+insert into registry (service_name, url) values ('interviewer OP', 'http://interviewerOP.com','InterviewerOP');
+insert into registry (service_name, url) values ('valider', 'http://valider.com','Valider');
 
 
 CREATE TABLE IF NOT EXISTS process

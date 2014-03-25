@@ -55,6 +55,26 @@ public class Orchestrator
 
 			//get steps from the process
 			listprocess = accessdb.getListstep();
+
+
+			for (int i=0; i<listprocess.size(); i++)
+			{
+				BeanProcess bean = listprocess.get(i);
+				int id = bean.getProcessorder();
+				switch (id)
+				{
+					case 1:
+						break;
+					case 2:
+						break;
+					case 3:
+						break;
+					case 4:
+						break;
+				}
+			}
+			switch 
+
 			for (int i=0; i<listprocess.size(); i++)
 			{	
 				BeanProcess bean = listprocess.get(i);
