@@ -1,5 +1,6 @@
 import java.util.*;
 import workflow.accessdb.*;
+import workflow.*;
 
 public class Client 
 {
@@ -10,15 +11,8 @@ public class Client
 		Accessdb access = service.getAccessdbPort();
 
 
-		List<BeanProcess> list = access.getListstep();
-
-		for (int i=0; i<list.size(); i++)
-		{
-			BeanProcess bean = (BeanProcess)list.get(i);
-			System.out.println(bean.getProcessorder() +"*"+ bean.getName());
-		}
-
-
-
+		Beancandidat c = new Beancandidat();
+		c = access.getCandidat(1);
+		System.out.println(c.getNom());
 	}
 }
