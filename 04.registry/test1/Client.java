@@ -27,6 +27,10 @@ public class Client
 			QName qname = new QName("http://registry.workflow","Service"); 
 
 			javax.xml.ws.Service service1 = javax.xml.ws.Service.create(url, qname);
+
+			String s ="Registry";
+string classe = s+".class";
+
 			Registry reg = service1.getPort(Registry.class); 
 			String s = reg.getService("initialiser");
 			System.out.println(s);

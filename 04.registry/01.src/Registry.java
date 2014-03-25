@@ -91,11 +91,21 @@ public class Registry
 	{
 		Connection connect = null;
 		Statement statement = null;
+		ResultSet resultSet = null;
 		try
 		{
 			connect = createConnection();
 			statement = connect.createStatement();
-			statement.executeUpdate("Insert into registry (service_name, url) values ('" + servicename + "', '" + url + "')");
+			resultSet = statement.executeQuery("select * from registry where service_name="+servicename);
+			if (!resultSet.next())
+			{
+				statement.executeUpdate("Insert into registry (service_name, url) values ('" + servicename + "', '" + url + "')");
+				return;
+			}
+			if (!url.equals(resultSet.getString(2)))
+			{
+				statement.executeUpdate("update registry set url ='"+url+"' where ID_registry="+resultSet.getInt(0));
+			}
 				
 		} catch (Exception e)
 		{
