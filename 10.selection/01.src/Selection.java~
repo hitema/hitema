@@ -35,34 +35,19 @@ public class Selection
 	{
 		try
 		{
-			String droit = null;
-			String ligne;
 			BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
 			System.out.println(" Qui etes vous ? " );
 			
 			String saisie = JOptionPane.showInputDialog("Quel est votre profil :");
-			if ( droit.equals(role) )
+			if ( saisie.equals(role) )
 			{
 
-				System.out.println(" Saisir le nom du candidat");
-				ligne = "Dupont"; //br.readLine();
-				beancandidat.setNom(ligne);
-				System.out.println(" Saisir le prenom du candidat");
-				ligne = "Robert"; //br.readLine();
-				beancandidat.setPrenom(ligne);
-				System.out.println(" Saisir le CV du candidat");
-				ligne = "/document/DRobertCV.pdf"; //br.readLine();
-				beancandidat.setCv(ligne);
-				
-				/*if (beancandidat == null)
-					System.out.println("***********************************************************" );
-				if ( !ligne.equals("") )
-				{
-					beancandidat.setDescriptif(ligne);
-				}
-				else 
-					beancandidat.setDescriptif(" Voici l'offre ");*/
-
+				saisie = JOptionPane.showInputDialog("Saisir le nom du candidat");
+				beancandidat.setNom(saisie);
+				saisie = JOptionPane.showInputDialog("Saisir le prenom du candidat");
+				beancandidat.setPrenom(saisie);
+				saisie = JOptionPane.showInputDialog("Saisir le cv du candidat");
+				beancandidat.setCv(saisie);
 			}
 		}
 		catch ( Exception e ) 

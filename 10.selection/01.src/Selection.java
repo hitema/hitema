@@ -12,7 +12,7 @@ import java.util.*;
 import java.sql.*;
 import java.io.*;
 
-
+import javax.swing.JOptionPane;
 
 
 
@@ -39,27 +39,15 @@ public class Selection
 			System.out.println(" Qui etes vous ? " );
 			
 			String saisie = JOptionPane.showInputDialog("Quel est votre profil :");
-			if ( droit.equals(role) )
+			if ( saisie.equals(role) )
 			{
 
 				saisie = JOptionPane.showInputDialog("Saisir le nom du candidat");
 				beancandidat.setNom(saisie);
-				System.out.println(" Saisir le prenom du candidat");
-				ligne = "Robert"; //br.readLine();
-				beancandidat.setPrenom(ligne);
-				System.out.println(" Saisir le CV du candidat");
-				ligne = "/document/DRobertCV.pdf"; //br.readLine();
-				beancandidat.setCv(ligne);
-				
-				/*if (beancandidat == null)
-					System.out.println("***********************************************************" );
-				if ( !ligne.equals("") )
-				{
-					beancandidat.setDescriptif(ligne);
-				}
-				else 
-					beancandidat.setDescriptif(" Voici l'offre ");*/
-
+				saisie = JOptionPane.showInputDialog("Saisir le prenom du candidat");
+				beancandidat.setPrenom(saisie);
+				saisie = JOptionPane.showInputDialog("Saisir le cv du candidat");
+				beancandidat.setCv(saisie);
 			}
 		}
 		catch ( Exception e ) 

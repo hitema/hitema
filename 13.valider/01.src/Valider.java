@@ -12,14 +12,14 @@ import java.util.*;
 import java.sql.*;
 import java.io.*;
 
-
+import javax.swing.JOptionPane;
 
 
 
 @Stateless                                                            
 @WebService(                                                         
    name="valider",
-   targetNamespace = "http://workflow",
+   targetNamespace = "http://valider.workflow",
    serviceName = "Service")
 @SOAPBinding(style=Style.DOCUMENT, use=Use.LITERAL)
 public class Valider
@@ -35,29 +35,12 @@ public class Valider
 	{
 		try
 		{
-			String droit = null;
-			String ligne;
 			BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
-			System.out.println(" Qui etes vous ? " );
-			
-			droit = "ARH"; //br.readLine();
-			if ( droit.equals(role) )
+			String saisie = JOptionPane.showInputDialog("Quel est votre profil :");
+			if ( saisie.equals(role) )
 			{
-
-				System.out.println(" Embauchons-nous ce candidat ?");
-				ligne = "Oui"; //br.readLine();
-				beancandidat.setValidation(ligne);
-			
-				
-				/*if (beancandidat == null)
-					System.out.println("***********************************************************" );
-				if ( !ligne.equals("") )
-				{
-					beancandidat.setDescriptif(ligne);
-				}
-				else 
-					beancandidat.setDescriptif(" Voici l'offre ");*/
-
+				saisie = JOptionPane.showInputDialog("Embauchons-nous ce candidat ?");
+				beancandidat.setValidation(saisie);
 			}
 		}
 		catch ( Exception e ) 
