@@ -1,0 +1,39 @@
+<project default="projet" basedir=".">
+
+	<property name="source" value="."/>
+	<property name="classes" value="."/>
+
+
+	<target name="projet" depends="clean, wsdl, compile" />
+
+	<target name="clean">
+		<delete>
+			<fileset dir="${classes}" includes="**/*.class" />
+		</delete>
+	</target>
+
+	<target name="wsdl">
+		<exec executable="wsimport">
+			<arg value="-keep" />
+			<arg value="http://localhost:8080/ServiceInterviewerDOP/Service/interviewerRH?wsdl" />   
+		</exec>
+	</target>
+
+	<target name="compile" >
+		<javac srcdir="${source}" destdir="${classes}" includeantruntime="false">
+			<classpath>
+				<pathelement location="." />
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="execute" >
+		<java classname="Client" >
+			<classpath>
+				<pathelement path="." />
+				<pathelement location="workflow" />
+			</classpath>
+		</java>
+	</target>
+
+</project>
