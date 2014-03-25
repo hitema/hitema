@@ -10,6 +10,8 @@ import javax.jws.soap.SOAPBinding.Use;
 import javax.ejb.EJBException;
 import java.util.*;
 import workflow.accessdb.*;
+import java.net.URL;
+import javax.xml.namespace.QName;
 
 import javax.swing.JOptionPane;
 
@@ -33,6 +35,15 @@ public class Orchestrator
 	{
 		
 	}
+
+/*
+
+	URL url = new URL("http://localhost:8080/ServiceRegistry/Service/Registry?wsdl");
+        QName qname = new QName("http://simple/","ExerciceWSService");
+        Service service = Service.create(url, qname);
+        Exercice exercice = service.getPort(Exercice.class); 
+
+*/
 
 	@WebMethod
 	public boolean startprocess(@WebParam(name="position") String position)
