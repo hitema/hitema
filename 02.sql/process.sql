@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS registry
 	PRIMARY KEY (ID_registry)
 )ENGINE=InnoDB;
 
+insert into registry (service_name, url) values ('accessdb', 'http://accessdb.workflow','Accessdb');
 insert into registry (service_name, url) values ('initialiser', 'http://init.com',);
 insert into registry (service_name, url) values ('rediger', 'http://rediger.com','Rediger');
 insert into registry (service_name, url) values ('publier', 'http://publier.com','IServiceWebPublication');
@@ -23,6 +24,7 @@ insert into registry (service_name, url) values ('selectionner', 'http://selecti
 insert into registry (service_name, url) values ('interviewer RH', 'http://interviewerRH.com','InterviewerRH');
 insert into registry (service_name, url) values ('interviewer OP', 'http://interviewerOP.com','InterviewerOP');
 insert into registry (service_name, url) values ('valider', 'http://valider.com','Valider');
+
 
 
 CREATE TABLE IF NOT EXISTS process
@@ -71,4 +73,4 @@ CREATE TABLE IF NOT EXISTS candidat
 
 insert into candidat (process_order, dateexec, position) values ();
 
-
+s
