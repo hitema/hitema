@@ -45,7 +45,7 @@ public class Rediger
 			if ( saisie.equals(role) )
 			{
 
-				saisie = JOptionPane.showInputDialog("Quel type de poste :");
+				saisie = JOptionPane.showInputDialog("Saisissez le descriptif du poste :");
 				if ( !saisie.equals("") )
 				{
 					beancandidat.setDescriptif(saisie);

@@ -9,11 +9,14 @@ import javax.jws.soap.SOAPBinding.Style;
 import javax.jws.soap.SOAPBinding.Use;
 import javax.ejb.EJBException;
 import java.util.*;
-import workflow.accessdb.*;
 import java.net.URL;
 import javax.xml.namespace.QName;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
+import workflow.*;
+import workflow.accessdb.*;
+import workflow.rediger.*;
+import workflow.selection.*;
 
 
 
@@ -33,23 +36,52 @@ public class Orchestrator
 	}
 
 
-	private void step_rediger(String url_text)
+	private workflow.Beancandidat step_rediger(workflow.Beancandidat bean, String url_text, String role)
 	{
+		System.out.println("***********************");
+		System.out.println("* REDIGER ON GOING   **");
+		System.out.println("***********************");
+		workflow.Beancandidat result = null;
 		try
 		{
-			URL url = new URL(url_text);
-			QName qname = new QName("http://registry.workflow","Service"); 
-
+			URL url = new URL("http://localhost:8080/ServiceRediger/Service/rediger?wsdl");//url_text);
+			QName qname = new QName("http://rediger.workflow","Service"); 
 			javax.xml.ws.Service service = javax.xml.ws.Service.create(url, qname);
-			Registry reg = service1.getPort(Registry.class); 
-			String s = reg.getService("initialiser");
+			workflow.rediger.Rediger rediger = service.getPort(workflow.rediger.Rediger.class); 
 
-			System.out.println(s);
+			result.setRedigerCandidat(rediger.execstep(role, bean.getRedigerCandidat())); 
+			result.setProcessorder(bean.getProcessorder()+1);
+
 		} catch (Exception e)
 		{
 			System.out.println(e);
 		}
+		return result;
 	}
+/*
+	private BeanProcess step_selectionner(workflow.Beancandidat bean, String url_text, String role)
+	{
+		System.out.println("****************************");
+		System.out.println("* SELECTIONNER ON GOING   **");
+		System.out.println("****************************");
+		workflow.Beancandidat result = null;
+		try
+		{
+			URL url = new URL("http://localhost:8080/ServiceSelection/Service/selection?wsdl");//url_text);
+			QName qname = new QName("http://rediger.workflow","Service"); 
+
+			javax.xml.ws.Service service = javax.xml.ws.Service.create(url, qname);
+
+			workflow.selection.Selection selection = service.getPort(workflow.selection.Selection.class); 
+			result = selection.execstep(role, bean);
+			//result.setProcessorder(bean.getProcessorder()+1);
+		} catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		return result;
+	}
+	*/
 
 
 	@WebMethod
@@ -70,8 +102,8 @@ public class Orchestrator
 
 			//initialize process by DRH
 			id = accessdb.initprocess(position);
-			System.out.println("Position = " + id.toString());
-
+			workflow.Beancandidat candidat = new workflow.Beancandidat();
+			candidat.setId(id);
 
 			//get steps from the process
 			listprocess = accessdb.getListstep();
@@ -81,25 +113,20 @@ public class Orchestrator
 			{
 				BeanProcess bean = listprocess.get(i);
 				int id = bean.getProcessorder();
-				id= 1;
+				
 				switch (id)
 				{
 					case 1:
 						break;
 					case 2:
+						 candidat = step_rediger(candidat, registry.getService("rediger"), bean.getRole());
 						break;
 					case 3:
 						break;
 					case 4:
+						//candidat = step_selectionner(candidat, registry.getService("selectionner"), bean.getRole());
 						break;
 				}
-			}
-
-			for (int i=0; i<listprocess.size(); i++)
-			{	
-				BeanProcess bean = listprocess.get(i);
-				String url = registry.getService(bean.getIdregistry());
-				System.out.println(url);
 			}
 			return true;
 		}

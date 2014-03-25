@@ -70,7 +70,7 @@
 	</target>
 
 
-	<target name="compile" depends="clean, wsdl">
+	<target name="compile" depends="">
 		<javac srcdir="${src}" destdir="${classes}" includeantruntime="false">
 			<classpath>
 				<fileset dir="${lib1}" includes="*.jar"/>
