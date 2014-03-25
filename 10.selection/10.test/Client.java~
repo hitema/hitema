@@ -1,5 +1,5 @@
 import java.util.*;
-import workflow.selection*;
+import workflow.*;
 import java.io.*;
 
 public class Client 

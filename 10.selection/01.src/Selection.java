@@ -19,7 +19,7 @@ import java.io.*;
 @Stateless                                                            
 @WebService(                                                         
    name="selection",
-   targetNamespace = "http://workflow",
+   targetNamespace = "http://selection.workflow",
    serviceName = "Service")
 @SOAPBinding(style=Style.DOCUMENT, use=Use.LITERAL)
 public class Selection

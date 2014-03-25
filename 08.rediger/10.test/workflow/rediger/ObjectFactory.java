@@ -1,5 +1,5 @@
 
-package workflow;
+package workflow.rediger;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -10,7 +10,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the workflow package. 
+ * generated in the workflow.rediger package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -24,14 +24,22 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _ExecstepResponse_QNAME = new QName("http://workflow", "execstepResponse");
-    private final static QName _Execstep_QNAME = new QName("http://workflow", "execstep");
+    private final static QName _Execstep_QNAME = new QName("http://rediger.workflow", "execstep");
+    private final static QName _ExecstepResponse_QNAME = new QName("http://rediger.workflow", "execstepResponse");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: workflow
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: workflow.rediger
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link Beancandidat }
+     * 
+     */
+    public Beancandidat createBeancandidat() {
+        return new Beancandidat();
     }
 
     /**
@@ -51,29 +59,21 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Beancandidat }
+     * Create an instance of {@link JAXBElement }{@code <}{@link Execstep }{@code >}}
      * 
      */
-    public Beancandidat createBeancandidat() {
-        return new Beancandidat();
+    @XmlElementDecl(namespace = "http://rediger.workflow", name = "execstep")
+    public JAXBElement<Execstep> createExecstep(Execstep value) {
+        return new JAXBElement<Execstep>(_Execstep_QNAME, Execstep.class, null, value);
     }
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ExecstepResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://workflow", name = "execstepResponse")
+    @XmlElementDecl(namespace = "http://rediger.workflow", name = "execstepResponse")
     public JAXBElement<ExecstepResponse> createExecstepResponse(ExecstepResponse value) {
         return new JAXBElement<ExecstepResponse>(_ExecstepResponse_QNAME, ExecstepResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Execstep }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://workflow", name = "execstep")
-    public JAXBElement<Execstep> createExecstep(Execstep value) {
-        return new JAXBElement<Execstep>(_Execstep_QNAME, Execstep.class, null, value);
     }
 
 }

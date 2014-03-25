@@ -38,14 +38,18 @@ public class Rediger
 		@WebParam(name="beancandidat") Beancandidat beancandidat)
 	{
 		try
-		{			
+		{
+			//String droit = null;
+			
 			BufferedReader br = new BufferedReader( new InputStreamReader(System.in));
-
+			//System.out.println(" Qui etes vous ? " );
+			//droit = "ARH"; //br.readLine();
 			String saisie = JOptionPane.showInputDialog("Quel est votre profil :");
 			if ( saisie.equals(role) )
 			{
 
 				saisie = JOptionPane.showInputDialog("Quel type de poste :");
+				//String ligne = "sdmflksdflk"; //br.readLine();
 				if ( !saisie.equals("") )
 				{
 					beancandidat.setDescriptif(saisie);
