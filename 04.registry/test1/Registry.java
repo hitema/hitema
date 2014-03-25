@@ -17,15 +17,12 @@ import javax.xml.ws.ResponseWrapper;
  * 
  */
 @WebService(name = "Registry", targetNamespace = "http://registry.workflow")
-@XmlSeeAlso({
-    ObjectFactory.class
-})
 public interface Registry {
 
 
     /**
      * 
-     * @param idservice
+     * @param servicename
      * @return
      *     returns java.lang.String
      */
@@ -34,8 +31,8 @@ public interface Registry {
     @RequestWrapper(localName = "getService", targetNamespace = "http://registry.workflow", className = "workflow.registry.GetService")
     @ResponseWrapper(localName = "getServiceResponse", targetNamespace = "http://registry.workflow", className = "workflow.registry.GetServiceResponse")
     public String getService(
-        @WebParam(name = "idservice", targetNamespace = "")
-        Integer idservice);
+        @WebParam(name = "servicename", targetNamespace = "")
+        String servicename);
 
     /**
      * 

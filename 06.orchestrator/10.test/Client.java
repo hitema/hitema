@@ -6,12 +6,36 @@ import java.net.URL;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
+<<<<<<< HEAD
+=======
+
+
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
+import javax.jws.soap.SOAPBinding.Style;
+import javax.jws.soap.SOAPBinding.Use;
+
+@WebService(name="Registry", targetNamespace = "http://registry.workflow", serviceName = "Service")
+interface Registry
+{
+	
+	public String getService(String servicename);
+ 	
+	public void addService(
+		String servicename,
+		String url);
+}
+
+>>>>>>> 835bf11978ce7cad39cb1db14ac35e8fa78409a3
 public class Client 
 {
 
 	public static void main(String[] args) 
 	{
 
+<<<<<<< HEAD
 	try
 	{
 	URL url = new URL("http://localhost:8080/ServiceRegistry/Service/Registry?wsdl");
@@ -27,9 +51,10 @@ public class Client
 	}
 	
 		System.out.println("*****************************************");
+=======
+>>>>>>> 835bf11978ce7cad39cb1db14ac35e8fa78409a3
 
-/*
-		Service service = new Service();
+		workflow.orchestrator.Service service = new workflow.orchestrator.Service();
 		Orchestrator orchestrator = service.getOrchestratorPort();
 
 		String role;
@@ -58,7 +83,7 @@ public class Client
 		System.out.println("*****************************************");
 		System.out.println("end Process");
 		System.out.println("*****************************************");
-*/
+
 
 	}
 }

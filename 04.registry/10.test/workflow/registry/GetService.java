@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="servicename" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="idservice" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,34 +27,34 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "getService", propOrder = {
-    "servicename"
+    "idservice"
 })
 public class GetService {
 
-    protected String servicename;
+    protected Integer idservice;
 
     /**
-     * Gets the value of the servicename property.
+     * Gets the value of the idservice property.
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Integer }
      *     
      */
-    public String getServicename() {
-        return servicename;
+    public Integer getIdservice() {
+        return idservice;
     }
 
     /**
-     * Sets the value of the servicename property.
+     * Sets the value of the idservice property.
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Integer }
      *     
      */
-    public void setServicename(String value) {
-        this.servicename = value;
+    public void setIdservice(Integer value) {
+        this.idservice = value;
     }
 
 }

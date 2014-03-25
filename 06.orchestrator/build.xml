@@ -31,7 +31,7 @@
 			<arg value="http://localhost:8080/ServiceAccessdb/Service/Accessdb?wsdl" />   
 		</exec>
 		<exec executable="wsimport">
-			<arg value="-keep" />
+			<arg value="-d" />
 			<arg value="${classes}" />
 			<arg value="http://localhost:8080/ServiceRegistry/Service/Registry?wsdl" />   
 		</exec>

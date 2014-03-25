@@ -10,7 +10,7 @@ public class Client
 
 		//registry.addService("test", "http://test");
 
-		String url = registry.getService("test");
+		String url = registry.getService(1);
 
 		System.out.println(url);	
 	}
