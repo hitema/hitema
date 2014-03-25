@@ -1,0 +1,19 @@
+<project default="projet" basedir=".">
+
+	<property name="source" value="."/>
+	<property name="classes" value="."/>
+
+
+	<target name="projet" depends="compile" />
+
+
+	<target name="compile" >
+		<javac srcdir="${source}" destdir="${classes}" includeantruntime="false">
+			<classpath>
+				<pathelement location="." />
+			</classpath>
+		</javac>
+	</target>
+
+
+</project>

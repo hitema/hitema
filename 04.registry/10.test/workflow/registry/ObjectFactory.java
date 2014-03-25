@@ -45,14 +45,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AddServiceResponse }
-     * 
-     */
-    public AddServiceResponse createAddServiceResponse() {
-        return new AddServiceResponse();
-    }
-
-    /**
      * Create an instance of {@link GetServiceResponse }
      * 
      */
@@ -66,6 +58,14 @@ public class ObjectFactory {
      */
     public AddService createAddService() {
         return new AddService();
+    }
+
+    /**
+     * Create an instance of {@link AddServiceResponse }
+     * 
+     */
+    public AddServiceResponse createAddServiceResponse() {
+        return new AddServiceResponse();
     }
 
     /**

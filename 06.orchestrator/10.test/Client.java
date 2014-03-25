@@ -7,6 +7,15 @@ import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
 
+
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebService;
+import javax.jws.soap.SOAPBinding;
+import javax.jws.soap.SOAPBinding.Style;
+import javax.jws.soap.SOAPBinding.Use;
+
+@WebService(name="Registry", targetNamespace = "http://registry.workflow", serviceName = "Service")
 interface Registry
 {
 	
@@ -23,24 +32,8 @@ public class Client
 	public static void main(String[] args) 
 	{
 
-	try
-	{
-	URL url = new URL("http://localhost:8080/ServiceRegistry/Service/Registry?wsdl");
-        QName qname = new QName("http://registry.workflow","Service"); 
 
-        javax.xml.ws.Service service1 = javax.xml.ws.Service.create(url, qname);
-        Registry reg = service1.getPort(Registry.class); 
-	String s = reg.getService("hh");
-	System.out.println(s);
-	} catch (Exception e)
-	{
-		System.out.println(e);
-	}
-	
-		System.out.println("*****************************************");
-
-/*
-		Service service = new Service();
+		workflow.orchestrator.Service service = new workflow.orchestrator.Service();
 		Orchestrator orchestrator = service.getOrchestratorPort();
 
 		String role;
@@ -69,7 +62,7 @@ public class Client
 		System.out.println("*****************************************");
 		System.out.println("end Process");
 		System.out.println("*****************************************");
-*/
+
 
 	}
 }
