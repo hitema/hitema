@@ -11,11 +11,11 @@ CREATE TABLE IF NOT EXISTS registry
 	ID_registry	int(4) NOT NULL AUTO_INCREMENT,
 	service_name	varchar(32) not null,
 	url		varchar(255) not null,
-	class_name	varchar(30) not null,
 
 	PRIMARY KEY (ID_registry)
 )ENGINE=InnoDB;
 
+/*
 insert into registry (service_name, url) values ('accessdb', 'http://accessdb.workflow','Accessdb');
 insert into registry (service_name, url) values ('initialiser', 'http://init.com',);
 insert into registry (service_name, url) values ('rediger', 'http://rediger.com','Rediger');
@@ -24,7 +24,24 @@ insert into registry (service_name, url) values ('selectionner', 'http://selecti
 insert into registry (service_name, url) values ('interviewer RH', 'http://interviewerRH.com','InterviewerRH');
 insert into registry (service_name, url) values ('interviewer OP', 'http://interviewerOP.com','InterviewerOP');
 insert into registry (service_name, url) values ('valider', 'http://valider.com','Valider');
+*/
 
+insert into registry (service_name, url) values ('accessdb', 'http://localhost:8080/ServiceAccessdb/Service/Accessdb?wsdl');
+insert into registry (service_name, url) values ('rediger', 'http://localhost:8080/ServiceRediger/Service/rediger?wsdl');
+insert into registry (service_name, url) values ('publier', 'http://milonas.cloudapp.net/ServiceWebPublication.svc?wsdl');
+insert into registry (service_name, url) values ('selectionner', 'http://localhost:8080/ServiceSelectionner/Service/selectionner?wsdl');
+insert into registry (service_name, url) values ('interviewer RH', 'http://localhost:8080/ServiceInterviewerRH/Service/interviewerRH?wsdl');
+insert into registry (service_name, url) values ('interviewer OP', 'http://localhost:8080/ServiceInterviewerDOP/Service/interviewerDOP?wsdl');
+insert into registry (service_name, url) values ('valider', 'http://localhost:8080/ServiceValider/Service/valider?wsdl');
+
+
+insert into registry (service_name, url) values ('accessdb', 'http://192.168.2.32:8080/ServiceAccessdb/Service/Accessdb?wsdl');
+insert into registry (service_name, url) values ('rediger', 'http://192.168.2.39:8080/ServiceRediger/Service/rediger?wsdl');
+insert into registry (service_name, url) values ('publier', 'http://milonas.cloudapp.net/ServiceWebPublication.svc?wsdl');
+insert into registry (service_name, url) values ('selectionner', 'http://192.168.2.203:8080/ServiceSelectionner/Service/selectionner?wsdl');
+insert into registry (service_name, url) values ('interviewer RH', 'http://192.168.2.39:8080/ServiceInterviewerRH/Service/interviewerRH?wsdl');
+insert into registry (service_name, url) values ('interviewer OP', 'http://192.168.2.201:8080/ServiceInterviewerDOP/Service/interviewerDOP?wsdl');
+insert into registry (service_name, url) values ('valider', 'http://192.168.2.203:8080/ServiceValider/Service/valider?wsdl');
 
 
 CREATE TABLE IF NOT EXISTS process

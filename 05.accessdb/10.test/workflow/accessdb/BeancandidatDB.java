@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for beancandidat complex type.
+ * <p>Java class for beancandidatDB complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="beancandidat">
+ * &lt;complexType name="beancandidatDB">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -36,7 +36,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "beancandidat", propOrder = {
+@XmlType(name = "beancandidatDB", propOrder = {
     "cv",
     "deroulement",
     "descriptif",
@@ -49,7 +49,7 @@ import javax.xml.bind.annotation.XmlType;
     "rh",
     "validation"
 })
-public class Beancandidat {
+public class BeancandidatDB {
 
     protected String cv;
     protected String deroulement;

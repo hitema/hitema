@@ -49,11 +49,59 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Initprocess }
+     * 
+     */
+    public Initprocess createInitprocess() {
+        return new Initprocess();
+    }
+
+    /**
+     * Create an instance of {@link SetCandidatResponse }
+     * 
+     */
+    public SetCandidatResponse createSetCandidatResponse() {
+        return new SetCandidatResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetCandidatResponse }
+     * 
+     */
+    public GetCandidatResponse createGetCandidatResponse() {
+        return new GetCandidatResponse();
+    }
+
+    /**
+     * Create an instance of {@link BeancandidatDB }
+     * 
+     */
+    public BeancandidatDB createBeancandidatDB() {
+        return new BeancandidatDB();
+    }
+
+    /**
+     * Create an instance of {@link BeanProcess }
+     * 
+     */
+    public BeanProcess createBeanProcess() {
+        return new BeanProcess();
+    }
+
+    /**
      * Create an instance of {@link SetCandidat }
      * 
      */
     public SetCandidat createSetCandidat() {
         return new SetCandidat();
+    }
+
+    /**
+     * Create an instance of {@link GetListstep }
+     * 
+     */
+    public GetListstep createGetListstep() {
+        return new GetListstep();
     }
 
     /**
@@ -70,54 +118,6 @@ public class ObjectFactory {
      */
     public GetCandidat createGetCandidat() {
         return new GetCandidat();
-    }
-
-    /**
-     * Create an instance of {@link BeanProcess }
-     * 
-     */
-    public BeanProcess createBeanProcess() {
-        return new BeanProcess();
-    }
-
-    /**
-     * Create an instance of {@link GetCandidatResponse }
-     * 
-     */
-    public GetCandidatResponse createGetCandidatResponse() {
-        return new GetCandidatResponse();
-    }
-
-    /**
-     * Create an instance of {@link Initprocess }
-     * 
-     */
-    public Initprocess createInitprocess() {
-        return new Initprocess();
-    }
-
-    /**
-     * Create an instance of {@link GetListstep }
-     * 
-     */
-    public GetListstep createGetListstep() {
-        return new GetListstep();
-    }
-
-    /**
-     * Create an instance of {@link SetCandidatResponse }
-     * 
-     */
-    public SetCandidatResponse createSetCandidatResponse() {
-        return new SetCandidatResponse();
-    }
-
-    /**
-     * Create an instance of {@link Beancandidat }
-     * 
-     */
-    public Beancandidat createBeancandidat() {
-        return new Beancandidat();
     }
 
     /**

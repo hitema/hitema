@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://accessdb.workflow}beancandidat" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://accessdb.workflow}beancandidatDB" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,17 +33,17 @@ import javax.xml.bind.annotation.XmlType;
 public class GetCandidatResponse {
 
     @XmlElement(name = "return")
-    protected Beancandidat _return;
+    protected BeancandidatDB _return;
 
     /**
      * Gets the value of the return property.
      * 
      * @return
      *     possible object is
-     *     {@link Beancandidat }
+     *     {@link BeancandidatDB }
      *     
      */
-    public Beancandidat getReturn() {
+    public BeancandidatDB getReturn() {
         return _return;
     }
 
@@ -52,10 +52,10 @@ public class GetCandidatResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Beancandidat }
+     *     {@link BeancandidatDB }
      *     
      */
-    public void setReturn(Beancandidat value) {
+    public void setReturn(BeancandidatDB value) {
         this._return = value;
     }
 

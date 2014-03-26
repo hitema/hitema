@@ -16,7 +16,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.1
  * 
  */
-@WebServiceClient(name = "Service", targetNamespace = "http://accessdb.workflow", wsdlLocation = "http://localhost:8080/ServiceAccessdb/Service/Accessdb?wsdl")
+@WebServiceClient(name = "Service", targetNamespace = "http://accessdb.workflow", wsdlLocation = "http://192.168.2.32:8080/ServiceAccessdb/Service/Accessdb?wsdl")
 public class Service
     extends javax.xml.ws.Service
 {
@@ -29,9 +29,9 @@ public class Service
         try {
             URL baseUrl;
             baseUrl = workflow.accessdb.Service.class.getResource(".");
-            url = new URL(baseUrl, "http://localhost:8080/ServiceAccessdb/Service/Accessdb?wsdl");
+            url = new URL(baseUrl, "http://192.168.2.32:8080/ServiceAccessdb/Service/Accessdb?wsdl");
         } catch (MalformedURLException e) {
-            logger.warning("Failed to create URL for the wsdl Location: 'http://localhost:8080/ServiceAccessdb/Service/Accessdb?wsdl', retrying as a local file");
+            logger.warning("Failed to create URL for the wsdl Location: 'http://192.168.2.32:8080/ServiceAccessdb/Service/Accessdb?wsdl', retrying as a local file");
             logger.warning(e.getMessage());
         }
         SERVICE_WSDL_LOCATION = url;

@@ -15,7 +15,7 @@
 	<target name="wsdl">
 		<exec executable="wsimport">
 			<arg value="-keep" />
-			<arg value="http://localhost:8080/ServiceRediger/Service/rediger?wsdl" />   
+			<arg value="http://192.168.2.32:8080/ServiceRediger/Service/rediger?wsdl" />   
 		</exec>
 	</target>
 

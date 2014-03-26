@@ -36,19 +36,19 @@ public interface Accessdb {
     @ResponseWrapper(localName = "setCandidatResponse", targetNamespace = "http://accessdb.workflow", className = "workflow.accessdb.SetCandidatResponse")
     public boolean setCandidat(
         @WebParam(name = "candidat", targetNamespace = "")
-        Beancandidat candidat);
+        BeancandidatDB candidat);
 
     /**
      * 
      * @param candidat
      * @return
-     *     returns workflow.accessdb.Beancandidat
+     *     returns workflow.accessdb.BeancandidatDB
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "getCandidat", targetNamespace = "http://accessdb.workflow", className = "workflow.accessdb.GetCandidat")
     @ResponseWrapper(localName = "getCandidatResponse", targetNamespace = "http://accessdb.workflow", className = "workflow.accessdb.GetCandidatResponse")
-    public Beancandidat getCandidat(
+    public BeancandidatDB getCandidat(
         @WebParam(name = "candidat", targetNamespace = "")
         int candidat);
 

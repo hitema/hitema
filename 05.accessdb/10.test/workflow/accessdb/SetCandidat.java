@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="candidat" type="{http://accessdb.workflow}beancandidat" minOccurs="0"/>
+ *         &lt;element name="candidat" type="{http://accessdb.workflow}beancandidatDB" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,17 +31,17 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class SetCandidat {
 
-    protected Beancandidat candidat;
+    protected BeancandidatDB candidat;
 
     /**
      * Gets the value of the candidat property.
      * 
      * @return
      *     possible object is
-     *     {@link Beancandidat }
+     *     {@link BeancandidatDB }
      *     
      */
-    public Beancandidat getCandidat() {
+    public BeancandidatDB getCandidat() {
         return candidat;
     }
 
@@ -50,10 +50,10 @@ public class SetCandidat {
      * 
      * @param value
      *     allowed object is
-     *     {@link Beancandidat }
+     *     {@link BeancandidatDB }
      *     
      */
-    public void setCandidat(Beancandidat value) {
+    public void setCandidat(BeancandidatDB value) {
         this.candidat = value;
     }
 

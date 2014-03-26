@@ -11,7 +11,7 @@ public class Client
 		Accessdb access = service.getAccessdbPort();
 
 
-		Beancandidat c = new Beancandidat();
+		BeancandidatDB c = new BeancandidatDB();
 		//c = access.getCandidat(1);
 		//System.out.println(c.getNom());
 		

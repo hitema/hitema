@@ -1,0 +1,15 @@
+|           1 | accessdb       | http://localhost:8080/ServiceAccessdb/Service/Accessdb?wsdl             |
+|           2 | rediger        | http://localhost:8080/ServiceRediger/Service/rediger?wsdl               |
+|           3 | publier        | http://publier.com                                                      |
+|           4 | selectionner   | http://localhost:8080/ServiceSelectionner/Service/selectionner?wsdl     |
+|           5 | interviewer RH | http://localhost:8080/ServiceInterviewerRH/Service/interviewerRH?wsdl   |
+|           6 | interviewer OP | http://localhost:8080/ServiceInterviewerDOP/Service/interviewerDOP?wsdl |
+|           7 | valider        | http://localhost:8080/ServiceValider/Service/valider?wsdl
+
+insert into registry (service_name, url) values ('accessdb', ' http://localhost:8080/ServiceAccessdb/Service/Accessdb?wsdl');
+insert into registry (service_name, url) values ('rediger', 'http://localhost:8080/ServiceRediger/Service/rediger?wsdl');
+insert into registry (service_name, url) values ('publier', 'http://milonas.cloudapp.net/ServiceWebPublication.svc?wsdl');
+insert into registry (service_name, url) values ('selectionner', 'http://localhost:8080/ServiceSelectionner/Service/selectionner?wsdl');
+insert into registry (service_name, url) values ('interviewer RH', 'http://localhost:8080/ServiceInterviewerRH/Service/interviewerRH?wsdl');
+insert into registry (service_name, url) values ('interviewer OP', 'http://localhost:8080/ServiceInterviewerDOP/Service/interviewerDOP?wsdl');
+insert into registry (service_name, url) values ('valider', 'http://localhost:8080/ServiceValider/Service/valider?wsdl');
