@@ -140,7 +140,6 @@ public class Orchestrator
 		workflow.CandidatOrchestrator result = new workflow.CandidatOrchestrator();
 		try
 		{
-			System.out.println(url_text);
 			URL url = new URL(url_text);
 			QName qname = new QName("http://valider.workflow","Service"); 
 			javax.xml.ws.Service service = javax.xml.ws.Service.create(url, qname);
@@ -157,17 +156,38 @@ public class Orchestrator
 	}
 
 
+	private void workflow.accessdb.Accessdb getAccessDB(String url_text)
+	{
+		workflow.accessdb.Accessdb accessdb = null;
+		try
+		{
+			URL url = new URL(url_text);
+			QName qname = new QName("http://accessdb.workflow","Service"); 
+			javax.xml.ws.Service service = javax.xml.ws.Service.create(url, qname);
+			accessdb = service.getPort(workflow.accessdb.Accessdb.class); 
+		} catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		return accessdb;
+	}
+
+
+
 	@WebMethod
 	public boolean startprocess(@WebParam(name="position") String position)
 	{
 		List<BeanProcess> listprocess = null;
 		try
 		{
-			workflow.accessdb.Service service_accessdb = new workflow.accessdb.Service();
-			Accessdb accessdb = service_accessdb.getAccessdbPort();
 
 			workflow.registry.Service service_registry = new workflow.registry.Service();
 			Registry registry = service_registry.getRegistryPort();
+
+			workflow.accessdb.Accessdb accessdb = getAccessDB(registry.getService("accessdb"));
+
+			//workflow.accessdb.Service service_accessdb = new workflow.accessdb.Service();
+			//workflow.accessdb.Accessdb accessdb = service_accessdb.getAccessdbPort();
 
 
 			//initialize process by DRH
@@ -212,56 +232,5 @@ public class Orchestrator
 	}
 }
 
-/*********************************************************************************
 
-
-
-
-
-
-
-
-import java.util.*;
-import java.io.Console;
-
-import java.net.URL;
-import javax.xml.namespace.QName;
-import javax.xml.ws.Service;
-
-import workflow.registry.*;
-
-import javax.jws.WebMethod;
-import javax.jws.WebParam;
-import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
-import javax.jws.soap.SOAPBinding.Style;
-import javax.jws.soap.SOAPBinding.Use;
-
-
-public class Client 
-{
-
-	public static void main(String[] args) 
-	{
-
-		try
-		{
-			URL url = new URL("http://localhost:8080/ServiceRegistry/Service/Registry?wsdl");
-			QName qname = new QName("http://registry.workflow","Service"); 
-
-			javax.xml.ws.Service service1 = javax.xml.ws.Service.create(url, qname);
-			Registry reg = service1.getPort(Registry.class); 
-			String s = reg.getService("initialiser");
-			System.out.println(s);
-		} catch (Exception e)
-		{
-			System.out.println(e);
-		}
-	}	
-}
-
-
-
-
-*/
 

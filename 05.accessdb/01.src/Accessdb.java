@@ -55,12 +55,6 @@ public class Accessdb
 		Connection connect = null;
 		Statement statement = null;
 		ResultSet resultSet = null;
-	/*	String sql = "select p.ID_process, p.process_order, p.role, p.name, r.ID_registry, r.url " +
-				"from process p, registry r " +
-				"where p.ID_registry = r.ID_registry " +
-				"order by p.process_order"; 
-	*/
-		// Thomas
 		String sql = "SELECT p.ID_process, p.process_order, p.role, p.name, p.ID_registry "+
 				"from process p " +
 				"order by p.process_order"; 
@@ -80,9 +74,6 @@ public class Accessdb
 				bean.setRole(resultSet.getString("role"));
 				bean.setName(resultSet.getString("name"));
 				bean.setIdregistry(resultSet.getInt("ID_registry"));		
-				//Thomas		
-				//bean.setUrl(resultSet.getString("url"));
-			
 				list.add(bean);
 			}
 			connect.close();	
@@ -138,7 +129,7 @@ public class Accessdb
     	public Beancandidat getCandidat(@WebParam(name="candidat")int id) throws Exception
 	{
 		String req = "select process_order, position, description, firstname,"+
-                        "lastname, resume, interviewrh, interviewop, validation from candidat where ID_candidat= "+id;
+                        "lastname, resume, interviewrh, interviewop, validation from candidat where ID_candidat = "+id;
 		Connection connect = null;
                 Statement statement = null;
                 ResultSet rs = null;
@@ -171,8 +162,8 @@ public class Accessdb
 	@WebMethod
     	public boolean setCandidat(@WebParam(name="candidat") Beancandidat candidat) throws Exception
 	{
-            String sql = "update candidat set process_order=?, description='?', firstname='?',"+
-                        "lastname='?', resume='?', interviewrh='?', interviewop='?', validation='?' where ID_candidat="+candidat.getId();
+            String sql = "update candidat set process_order=?, description=?, firstname=?,"+
+                        "lastname=?, resume=?, interviewrh=?, interviewop=?, validation=? where ID_candidat="+candidat.getId();
 		Connection connect = null;
 		PreparedStatement preparedStatement = null;
 
@@ -210,119 +201,5 @@ public class Accessdb
 		
 	}
 
-/*
-	private Nextstep getNextStep(String process, String username, Integer step, boolean isnextstep)
-	{
-		String sql;
-		Nextstep next = null;
-		Connection connect = null;
-		PreparedStatement preparedStatement = null;
-		ResultSet resultSet = null;
-
-		if (isnextstep)
-			sql = "select s.name, r.type_role "+
-				"from step s, role r "+
-				"where s.ID_step = r.ID_step "+
-				"and s.process = ? "+ 
-				"and s.process_order = ? "+
-				"and r.username = ?"; 
-		else
-
-			sql = "select s.name, r.type_role "+
-				"from step s, role r "+
-				"where s.ID_step = r.ID_step "+
-				"and r.type_role <> (select r1.type_role "+
-				"	from step s1, role r1 "+
-				"	where s1.ID_step = r1.ID_step "+
-				"	and s1.process = ? "+
-				"	and r1.type_role = 1000"+
-				"	and s1.process_order = ? "+
-				"	and r1.username <> ?) "+
-				"and s.process = ? "+
-				"and s.process_order = ? "+
-				"and r.username = ?"; 
-		try
-		{
-			connect = createConnection();
-			preparedStatement = connect.prepareStatement(sql);
-			preparedStatement.setString(1, process);
-			if (isnextstep)
-				preparedStatement.setInt(2, step+1);
-			else
-				preparedStatement.setInt(2, step);
-			preparedStatement.setString(3, username);
-			if (!isnextstep)
-			{
-				preparedStatement.setString(4, process);
-				preparedStatement.setInt(5, step);
-				preparedStatement.setString(6, username);
-			}
-			resultSet = preparedStatement.executeQuery();
-			if (resultSet.next())
-			{
-				next = new Nextstep();
-				next.process_order = step;
-				next.role = resultSet.getInt("type_role");
-				next.name =  resultSet.getString("name");
-			}
-			connect.close();
-		} catch (Exception e)
-		{ System.out.println("Nextstep " + e); }
-		return next;
-	}
-
-	@WebMethod
-	public List<BeanProcessOnGoing> getListOnGoing(@WebParam(name="username") String username)
-	{
-		List<BeanProcessOnGoing> list = new ArrayList<BeanProcessOnGoing>();
-		Connection connect = null;
-		Statement statement = null;
-		ResultSet resultSet = null;
-
-		String sql = "Select w.ID_workflow, w.ID_process, w.last_step, e.status "+
-				"from workflow w, execute e, step s, role r "+
-				"where w.ID_workflow = e.ID_workflow  "+
-				"and w.ID_process = s.process  "+
-				"and s.process_order = w.last_step  "+
-				"and s.ID_step = r.ID_step "+
-				"and e.status <> 2 and e.status <> 0 " +
-				"and w.last_step = e.step_order  "+
-				"and r.username = '" + username + "' ";
-
-		try
-		{
-			connect = createConnection();
-
-			statement = connect.createStatement();
-			resultSet = statement.executeQuery(sql);
-			while (resultSet.next())
-			{
-
-				Nextstep next = null;
-				
-				if (resultSet.getInt("status") == 1)
-					next = getNextStep(resultSet.getString("ID_process"), username, resultSet.getInt("last_step"), true);
-				else
-					next = getNextStep(resultSet.getString("ID_process"), username, resultSet.getInt("last_step"), false);
-				if (next !=null)
-				{
-					BeanProcessOnGoing bean = new BeanProcessOnGoing();
-					bean.setIdworkflow(resultSet.getInt("ID_workflow"));
-					bean.setProcessname(resultSet.getString("ID_process"));
-					bean.setProcessorder(next.process_order);
-					bean.setName(next.name);
-					bean.setTyperole(next.role);
-					list.add(bean);
-				}
-			}
-			connect.close();	
-		} catch (Exception e)
-		{
-			System.out.println("getListOnGoing " + e);
-		}
-
-		return list;
-	}
-*/
 }
 
