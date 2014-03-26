@@ -1,3 +1,5 @@
+package workflow;
+
 import workflow.accessdb.*;
 import workflow.registry.*;
 import javax.ejb.Stateless;

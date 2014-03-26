@@ -24,7 +24,7 @@
 		<delete file="${archive}/${archivename}" />
 	</target>
 	
-	<target name="wsdl" depends="wsdl_rediger, wsdl_selection, wsdl_valider, wsdl_interview_RH, wsdl_interview_OP">
+	<target name="wsdl" depends="wsdl_rediger, wsdl_selection, wsdl_valider, wsdl_interview_RH, wsdl_interview_OP, wsdl_publish">
 		<exec executable="wsimport">
 			<arg value="-d" />
 			<arg value="${classes}" />

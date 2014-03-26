@@ -35,19 +35,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link StartprocessResponse }
-     * 
-     */
-    public StartprocessResponse createStartprocessResponse() {
-        return new StartprocessResponse();
-    }
-
-    /**
      * Create an instance of {@link Startprocess }
      * 
      */
     public Startprocess createStartprocess() {
         return new Startprocess();
+    }
+
+    /**
+     * Create an instance of {@link StartprocessResponse }
+     * 
+     */
+    public StartprocessResponse createStartprocessResponse() {
+        return new StartprocessResponse();
     }
 
     /**
