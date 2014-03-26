@@ -39,10 +39,10 @@ public class Valider
 			String saisie = JOptionPane.showInputDialog("Quel est votre profil :");
 			if ( saisie.equals(role) )
 			{
-				saisie = JOptionPane.showInputDialog("Embauchons-nous ce candidat ?");
+				saisie = JOptionPane.showInputDialog("Embauchons-nous ce candidat ? Oui/Non");
 				while ( !saisie.equals("oui") && !saisie.equals("non") )
 				{
-					saisie = JOptionPane.showInputDialog("Repondez par oui ou non");
+					saisie = JOptionPane.showInputDialog("Erreur,veuillez saisir oui ou non");
 				}
 				beancandidat.setValidation(saisie);
 			}

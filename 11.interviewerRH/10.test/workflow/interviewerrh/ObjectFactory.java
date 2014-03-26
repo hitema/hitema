@@ -35,11 +35,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Execstep }
+     * Create an instance of {@link ExecstepResponse }
      * 
      */
-    public Execstep createExecstep() {
-        return new Execstep();
+    public ExecstepResponse createExecstepResponse() {
+        return new ExecstepResponse();
     }
 
     /**
@@ -51,11 +51,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ExecstepResponse }
+     * Create an instance of {@link Execstep }
      * 
      */
-    public ExecstepResponse createExecstepResponse() {
-        return new ExecstepResponse();
+    public Execstep createExecstep() {
+        return new Execstep();
     }
 
     /**

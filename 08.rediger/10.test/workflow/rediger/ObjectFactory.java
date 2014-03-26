@@ -35,11 +35,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Beancandidat }
+     * Create an instance of {@link ExecstepResponse }
      * 
      */
-    public Beancandidat createBeancandidat() {
-        return new Beancandidat();
+    public ExecstepResponse createExecstepResponse() {
+        return new ExecstepResponse();
     }
 
     /**
@@ -51,11 +51,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ExecstepResponse }
+     * Create an instance of {@link Beancandidat }
      * 
      */
-    public ExecstepResponse createExecstepResponse() {
-        return new ExecstepResponse();
+    public Beancandidat createBeancandidat() {
+        return new Beancandidat();
     }
 
     /**

@@ -38,12 +38,7 @@ public class InterviewerRH
 			String saisie = JOptionPane.showInputDialog("Quel est votre profil :");
 			if ( saisie.equals(role) )
 			{
-				saisie = JOptionPane.showInputDialog("Ressource Human, voulez vous embaucher ce candidat ?");
-				while ( !saisie.equals("oui") && !saisie.equals("non") )
-				{
-					saisie = JOptionPane.showInputDialog("Repondez par oui ou non");
-					
-				}
+				saisie = JOptionPane.showInputDialog("Ressource Human,veuillez saisir le compte rendu de l'interview ?");
 				beancandidat.setRh(saisie);
 			}
 			else

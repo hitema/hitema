@@ -43,19 +43,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ExecstepResponse }
-     * 
-     */
-    public ExecstepResponse createExecstepResponse() {
-        return new ExecstepResponse();
-    }
-
-    /**
      * Create an instance of {@link Beancandidat }
      * 
      */
     public Beancandidat createBeancandidat() {
         return new Beancandidat();
+    }
+
+    /**
+     * Create an instance of {@link ExecstepResponse }
+     * 
+     */
+    public ExecstepResponse createExecstepResponse() {
+        return new ExecstepResponse();
     }
 
     /**

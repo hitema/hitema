@@ -38,11 +38,7 @@ public class InterviewerDOP
 			String saisie = JOptionPane.showInputDialog("Quel est votre profil :");
 			if ( saisie.equals(role) )
 			{
-				saisie = JOptionPane.showInputDialog("Directeur opérationnel, voulez vous embaucher ce candidat ?");
-				while ( !saisie.equals("oui") && !saisie.equals("non") )
-				{
-					saisie = JOptionPane.showInputDialog("Repondez par oui ou non");
-				}
+				saisie = JOptionPane.showInputDialog("Directeur opérationnel, veuillez saisir le compte rendu de l'interview");
 				beancandidat.setDop(saisie);
 			}
 			else
