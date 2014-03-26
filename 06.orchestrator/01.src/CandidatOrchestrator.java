@@ -6,27 +6,59 @@ import workflow.interviewerdop.*;
 import workflow.interviewerrh.*;
 import workflow.selectionner.*;
 import workflow.valider.*;
-
+import workflow.accessdb.*;
 
 
 public class CandidatOrchestrator implements Serializable 
 {
-	private int id;
-	private String intitule;
-	    private String descriptif;
-	    private String nom;
-	    private String prenom;
-	    private String cv;
-	    private String rh;
-	    private String dop;
-	    private String validation;
-private int processorder; 
-private String deroulement;
+	private int id = 0;
+	private String intitule = "";
+	    private String descriptif = "";
+	    private String nom = "";
+	    private String prenom = "";
+	    private String cv = "";
+	    private String rh = "";
+	    private String dop = "";
+	    private String validation = "";
+private int processorder  = 0; 
+private String deroulement = "";
 
+
+	public workflow.accessdb.BeancandidatDB getCandidatDB()
+	{
+		workflow.accessdb.BeancandidatDB bean = new workflow.accessdb.BeancandidatDB();
+		bean.setId(id);
+		bean.setDescriptif(descriptif);
+		bean.setNom(nom);
+		bean.setPrenom(prenom);
+		bean.setCv(cv);
+		bean.setRh(rh);
+		bean.setDop(dop);
+		bean.setValidation(validation);
+		bean.setProcessorder(processorder);
+		bean.setDeroulement(deroulement);
+		return bean;
+		
+	}
+
+	public void setCandidatDB(workflow.accessdb.BeancandidatDB bean)
+	{
+		this.setId(bean.getId());
+		this.setDescriptif(bean.getDescriptif());
+		this.setNom(bean.getNom());
+		this.setPrenom(bean.getPrenom());
+		this.setCv(bean.getCv());
+		this.setRh(bean.getRh());
+		this.setDop(bean.getDop());
+		this.setValidation(bean.getValidation());
+		this.setProcessorder(bean.getProcessorder());
+		this.setDeroulement(bean.getDeroulement());
+	}
 
 	public workflow.rediger.Beancandidat getRedigerCandidat()
 	{
 		workflow.rediger.Beancandidat bean = new workflow.rediger.Beancandidat();
+		bean.setId(id);
 		bean.setDescriptif(descriptif);
 		bean.setNom(nom);
 		bean.setPrenom(prenom);
@@ -41,6 +73,7 @@ private String deroulement;
 
 	public void setRedigerCandidat(workflow.rediger.Beancandidat bean)
 	{
+		this.setId(bean.getId());
 		this.setDescriptif(bean.getDescriptif());
 		this.setNom(bean.getNom());
 		this.setPrenom(bean.getPrenom());
@@ -55,6 +88,7 @@ private String deroulement;
 	public workflow.selectionner.Beancandidat getSelectionCandidat()
 	{
 		workflow.selectionner.Beancandidat bean = new workflow.selectionner.Beancandidat();
+		bean.setId(id);
 		bean.setDescriptif(descriptif);
 		bean.setNom(nom);
 		bean.setPrenom(prenom);
@@ -69,6 +103,7 @@ private String deroulement;
 
 	public void setSelectionCandidat(workflow.selectionner.Beancandidat bean)
 	{
+		this.setId(bean.getId());
 		this.setDescriptif(bean.getDescriptif());
 		this.setNom(bean.getNom());
 		this.setPrenom(bean.getPrenom());
@@ -83,6 +118,7 @@ private String deroulement;
 	public workflow.valider.Beancandidat getValiderCandidat()
 	{
 		workflow.valider.Beancandidat bean = new workflow.valider.Beancandidat();
+		bean.setId(id);
 		bean.setDescriptif(descriptif);
 		bean.setNom(nom);
 		bean.setPrenom(prenom);
@@ -97,6 +133,7 @@ private String deroulement;
 
 	public void setValiderCandidat(workflow.valider.Beancandidat bean)
 	{
+		this.setId(bean.getId());
 		this.setDescriptif(bean.getDescriptif());
 		this.setNom(bean.getNom());
 		this.setPrenom(bean.getPrenom());
@@ -111,6 +148,7 @@ private String deroulement;
 	public workflow.interviewerrh.Beancandidat getInterviewerRhCandidat()
 	{
 		workflow.interviewerrh.Beancandidat bean = new workflow.interviewerrh.Beancandidat();
+		bean.setId(id);
 		bean.setDescriptif(descriptif);
 		bean.setNom(nom);
 		bean.setPrenom(prenom);
@@ -125,6 +163,7 @@ private String deroulement;
 
 	public void setInterviewerRhCandidat(workflow.interviewerrh.Beancandidat bean)
 	{
+		this.setId(bean.getId());
 		this.setDescriptif(bean.getDescriptif());
 		this.setNom(bean.getNom());
 		this.setPrenom(bean.getPrenom());
@@ -139,6 +178,7 @@ private String deroulement;
 	public workflow.interviewerdop.Beancandidat getInterviewerDopCandidat()
 	{
 		workflow.interviewerdop.Beancandidat bean = new workflow.interviewerdop.Beancandidat();
+		bean.setId(id);
 		bean.setDescriptif(descriptif);
 		bean.setNom(nom);
 		bean.setPrenom(prenom);
@@ -153,6 +193,7 @@ private String deroulement;
 
 	public void setInterviewerDopCandidat(workflow.interviewerdop.Beancandidat bean)
 	{
+		this.setId(bean.getId());
 		this.setDescriptif(bean.getDescriptif());
 		this.setNom(bean.getNom());
 		this.setPrenom(bean.getPrenom());

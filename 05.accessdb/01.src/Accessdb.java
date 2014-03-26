@@ -125,81 +125,84 @@ public class Accessdb
 		return id;
 	}
 
-	@WebMethod
-    	public Beancandidat getCandidat(@WebParam(name="candidat")int id) throws Exception
-	{
-		String req = "select process_order, position, description, firstname,"+
+
+  @WebMethod
+   public BeancandidatDB getCandidat(@WebParam(name="candidat")int id) throws Exception
+    {
+        String req = "select process_order, position, description, firstname,"+
                         "lastname, resume, interviewrh, interviewop, validation from candidat where ID_candidat = "+id;
-		Connection connect = null;
+        Connection connect = null;
                 Statement statement = null;
                 ResultSet rs = null;
-		Beancandidat candidat = new Beancandidat();
-		try
-		{
-			connect = createConnection();
-			statement = connect.createStatement();
+        BeancandidatDB candidat = new BeancandidatDB();
+        try
+        {
+            connect = createConnection();
+            statement = connect.createStatement();
                         rs = statement.executeQuery(req);
                         while(rs.next()) 
                         {
                             candidat.setProcessorder(rs.getInt(1));
-                            candidat.setIntitule(rs.getString(3));
-                            candidat.setDescriptif(rs.getString(4));
-                            candidat.setPrenom(rs.getString(5));
-                            candidat.setNom(rs.getString(6));
-                            candidat.setCv(rs.getString(7));
-                            candidat.setRh(rs.getString(8));
-                            candidat.setDop(rs.getString(9));
-                            candidat.setValidation(rs.getString(10));
+                            candidat.setIntitule(rs.getString(2));
+                            candidat.setDescriptif(rs.getString(3));
+                            candidat.setPrenom(rs.getString(4));
+                            candidat.setNom(rs.getString(5));
+                            candidat.setCv(rs.getString(6));
+                            candidat.setRh(rs.getString(7));
+                            candidat.setDop(rs.getString(8));
+                            candidat.setValidation(rs.getString(9));
                         }
                 }
                 catch (Exception e)
                 {
-				System.out.println(e);
-		}
+                System.out.println(e);
+        }
                 return candidat;
-	}
+    } 
 
-	@WebMethod
-    	public boolean setCandidat(@WebParam(name="candidat") Beancandidat candidat) throws Exception
-	{
+
+    @WebMethod
+    public boolean setCandidat(@WebParam(name="candidat") BeancandidatDB candidat) throws Exception
+    {
             String sql = "update candidat set process_order=?, description=?, firstname=?,"+
                         "lastname=?, resume=?, interviewrh=?, interviewop=?, validation=? where ID_candidat="+candidat.getId();
-		Connection connect = null;
-		PreparedStatement preparedStatement = null;
-
-		try
-		{
-			connect = createConnection();
-			preparedStatement = connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-			preparedStatement.setInt(1,candidat.getProcessorder());
-			preparedStatement.setString(2, candidat.getDescriptif());
+        Connection connect = null;
+        PreparedStatement preparedStatement = null;
+ 
+        try
+        {
+            connect = createConnection();
+            preparedStatement = connect.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1,candidat.getProcessorder());
+            preparedStatement.setString(2, candidat.getDescriptif());
                         preparedStatement.setString(3, candidat.getPrenom());
                         preparedStatement.setString(4, candidat.getNom());
                         preparedStatement.setString(5, candidat.getCv());
                         preparedStatement.setString(6, candidat.getRh());
                         preparedStatement.setString(7, candidat.getDop());
                         preparedStatement.setString(8, candidat.getValidation());
-			preparedStatement.executeUpdate();
+            preparedStatement.executeUpdate();
                         return true;
-    			
-		} catch (Exception e)
-		{
-			System.out.println(e);
+                 
+        } catch (Exception e)
+        {
+            System.out.println(e);
                         return false;
-		}
-		finally
-		{
-			try {
-				if (connect != null)
-				connect.close();
-			} catch (Exception e)
+        }
+        finally
+        {
+            try {
+                if (connect != null)
+                connect.close();
+            } catch (Exception e)
+ 
+            {
+                System.out.println(e);
+            }
+        }
+         
+    }
 
-			{
-				System.out.println(e);
-			}
-		}
-		
-	}
 
 }
 

@@ -2,10 +2,10 @@ package workflow;
 
 import java.io.Serializable;
 
-public class Beancandidat implements Serializable 
+public class BeancandidatDB implements Serializable 
 {
-	private int id;
-	private String intitule;
+   private int id; 
+   private String intitule;
     private String descriptif;
     private String nom;
     private String prenom;
@@ -124,7 +124,7 @@ private String deroulement;
 		return this.deroulement;
 	}
 	
-	public Beancandidat()
+	public BeancandidatDB()
 	{
 	}
     

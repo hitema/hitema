@@ -71,6 +71,6 @@ CREATE TABLE IF NOT EXISTS candidat
 	PRIMARY KEY (ID_candidat)
 ) ENGINE=InnoDB;
 
-insert into candidat (process_order, dateexec, position) values ();
 
-s
+
+
